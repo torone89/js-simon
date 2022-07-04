@@ -78,13 +78,13 @@ const comandoprompt = setTimeout(function () {
     for (let i = 1; i <= indicenumeri; i++) {
         let indovinaNumero
         do {
-            indovinaNumero = parseInt(prompt("Inserisci i numeri che ti ricordi di quelli che hai visualizzato"))
+            indovinaNumero = parseInt(prompt("Inserisci un numero che ti ricordi di quelli visualizzati precedentemente"))
         } while (isNaN(indovinaNumero)) // Verifica che sia un valore "numero" e non stringa
 
         // Inserisco il numero nell'array Indovina
         indovina.push(indovinaNumero);
     }
-    console.log("I numeri che ho scelto: " + indovina);
+    console.log("I numeri che ho scelto:" + indovina);
 
     // Controllo se i numeri inseriti dall'utente sono uguali a quelli generati dall'utente!
     for (let j = 0; j < indovina.length; j++) {
