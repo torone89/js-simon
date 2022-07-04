@@ -10,9 +10,12 @@ console.log("JS")
 
 // Recupero dove stampare i numeri da ricordare a mente nel DOM
 
-const numeri = document.getElementById('numerimente')
+let numeri = document.getElementById('numerimente')
 console.log(numeri)
 
+// // Recupero la classe d-none
+// const Dnone = document.querySelector('display')
+// console.log(Dnone)
 
 // Mi creo una funzione per generare 5 numeri casuali da 1 a 100 e li aggiungo
 function getRandomnumber(min, max) {
@@ -27,3 +30,14 @@ for (let i = 1; i <= 5; i++) {
     console.log(getRandomnumber(1, 100))
     numeri.innerText = numerimente + " "
 }
+
+
+let secondi = 30
+const contoAllaRovescia = setInterval(function () {
+    --secondi
+    if (secondi === 0) {
+        clearInterval(contoAllaRovescia)
+        numeri.classList.add('display');
+    }
+    console.log(contoAllaRovescia)
+}, 1000)
