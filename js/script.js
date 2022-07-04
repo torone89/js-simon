@@ -62,7 +62,7 @@ const contoAllaRovescia = setInterval(function () {
 
 // Mi Creo un array per chiedere un utente un numero 
 
-const indovina = [];
+let indovina = [];
 
 // Imposto un prompt che chieda all'utente i numeri visti precedentemente a 0.2s
 const comandoprompt = setTimeout(function () {
@@ -79,3 +79,9 @@ const comandoprompt = setTimeout(function () {
     }
     console.log("I numeri che ho scelto: " + indovina);
 }, secondi * 1000 + 200);
+
+let score = ""
+
+const punteggio = numerimente[i] === indovina[i] ? score++ : score = ""
+
+console.log(punteggio)
