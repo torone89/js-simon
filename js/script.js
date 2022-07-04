@@ -49,13 +49,19 @@ const contoAllaRovescia = setInterval(function () {
         // Aggiungo la classe display none
         numeri.classList.add('display');
 
+
         for (let i = 1; i <= 5; i++) {
 
-            prompt(alert("Inserisci il numero  che ti ricordi"))
+            let indovina = parseInt(prompt(alert("Inserisci il numero  che ti ricordi")))
+
+            console.log(indovina[i])
+
+            if (indovina === numerimente) { risulatofinale = +1 }
 
 
+            let risulatofinale = indovina
+            console.log("Hai indovinato" + risulatofinale + "numeri")
         }
-
 
     }
     console.log(contoAllaRovescia)
