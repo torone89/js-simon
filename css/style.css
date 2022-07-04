@@ -24,8 +24,16 @@ body {
 /* *************************/
 
 #numerimente {
+    font-weight: bolder;
+    font-size: 10rem;
+    text-align: center;
+}
+
+#timer {
+    color: red;
+    text-align: center;
+    font-size: 5rem;
     font-weight: bold;
-    font-size: 8rem;
 }
 
 .display {

@@ -13,6 +13,7 @@ console.log("JS")
 let numeri = document.getElementById('numerimente')
 console.log(numeri)
 
+const timer = document.getElementById('timer')
 
 // Mi creo una funzione per generare 5 numeri casuali da 1 a 100 e li aggiungo
 function getRandomnumber(min, max) {
@@ -43,18 +44,25 @@ while (numerimente.length < 5) {
         numerimente.push(randomNumber);
     }
 }
+
 numeri.innerHTML = numerimente
 
+
 // Mi creo un ContDown che parte da 30 secondi e decresci di un secondo fino allo 0
-let secondi = 5
+let secondi = 30
 const contoAllaRovescia = setInterval(function () {
+    timer.innerHTML = `"Memorizza i numeri" <br> ATTENTO mancano <br> ${secondi}`
+
     --secondi
+
     if (secondi === 0) {
         clearInterval(contoAllaRovescia)
         // Aggiungo la classe display none
+        timer.classList.add('display');
         numeri.classList.add('display');
 
     }
+
     console.log(contoAllaRovescia)
 }, 1000)
 
