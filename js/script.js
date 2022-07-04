@@ -31,13 +31,21 @@ for (let i = 1; i <= 5; i++) {
     numeri.innerText = numerimente + " "
 }
 
-
-let secondi = 30
+// Mi creo un ContDown che parte da 30 secondi e decresci di un secondo fino allo 0
+let secondi = 5
 const contoAllaRovescia = setInterval(function () {
     --secondi
     if (secondi === 0) {
         clearInterval(contoAllaRovescia)
+        // Aggiungo la classe display none
         numeri.classList.add('display');
+
+        for (let i = 1; i <= 5; i++) {
+
+            prompt(alert("Inserisci il numero  che ti ricordi"))
+        }
+
+
     }
     console.log(contoAllaRovescia)
 }, 1000)
