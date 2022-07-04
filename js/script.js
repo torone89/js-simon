@@ -24,10 +24,19 @@ function getRandomnumber(min, max) {
 };
 
 let numerimente = [];
-for (let i = 1; i <= 5; i++) {
+const indicenumeri = 5
+
+for (let i = 1; i <= indicenumeri; i++) {
+
+    // Stabilisco se posso inserire numeri doppi
+    let numericasuali = 0
+
+    do {
+        numericasuali = getRandomnumber(1, 100);
+    } while (numerimente.includes(numericasuali));
 
     numerimente.push(getRandomnumber(1, 100))
-    console.log(getRandomnumber(1, 100))
+    console.log(numerimente)
     numeri.innerText = numerimente + " "
 }
 
@@ -43,6 +52,8 @@ const contoAllaRovescia = setInterval(function () {
         for (let i = 1; i <= 5; i++) {
 
             prompt(alert("Inserisci il numero  che ti ricordi"))
+
+
         }
 
 
