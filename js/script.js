@@ -13,38 +13,37 @@ console.log("JS")
 let numeri = document.getElementById('numerimente')
 console.log(numeri)
 
-// // Recupero la classe d-none
-// const Dnone = document.querySelector('display')
-// console.log(Dnone)
 
 // Mi creo una funzione per generare 5 numeri casuali da 1 a 100 e li aggiungo
 function getRandomnumber(min, max) {
-
     return Math.floor(Math.random() * (max - min)) + min;
 };
+
+
 
 let numerimente = [];
 const indicenumeri = 5
 
-for (let i = 1; i <= indicenumeri; i++) {
+// for (let i = 1; i <= indicenumeri; i++) {
 
 
-    // Controllo 
-    if (numerimente.includes(getRandomnumber(1, 100))) { i-- }
-    else { numerimente.push(getRandomnumber(1, 100)) }
+//     // Controllo 
+//     if (numerimente.includes(getRandomnumber(1, 100))) { i-- }
+//     else { numerimente.push(getRandomnumber(1, 100)) }
 
-    console.log(numerimente)
-    numeri.innerText = numerimente
+//     console.log(numerimente)
+//     numeri.innerText = numerimente
 
-}
-
-// // SOLUZIONE WHILE
-// while (numerimente.length <= 5) {
-//     let randomNumber = getRandomnumber(1, 100);
-//     if (!numerimente.includes(randomNumber)) {
-//         numerimente.push(randomNumber);
-//     }
 // }
+
+// SOLUZIONE WHILE
+while (numerimente.length < 5) {
+    let randomNumber = getRandomnumber(1, 100);
+    if (!numerimente.includes(randomNumber)) {
+        numerimente.push(randomNumber);
+    }
+}
+numeri.innerHTML = numerimente
 
 // Mi creo un ContDown che parte da 30 secondi e decresci di un secondo fino allo 0
 let secondi = 5
@@ -60,10 +59,10 @@ const contoAllaRovescia = setInterval(function () {
 }, 1000)
 
 
-// Mi Creo un array per chiedere un utente un numero 
+// Mi Creo un array per chiedere un utente un numero  e mi calcolo un punteggio
 
 let indovina = [];
-
+let punteggio = [];
 // Imposto un prompt che chieda all'utente i numeri visti precedentemente a 0.2s
 const comandoprompt = setTimeout(function () {
 
@@ -78,10 +77,15 @@ const comandoprompt = setTimeout(function () {
         indovina.push(indovinaNumero);
     }
     console.log("I numeri che ho scelto: " + indovina);
+
+    // Controllo se i numeri inseriti dall'utente sono uguali a quelli generati dall'utente!
+    for (let j = 0; j < indovina.length; j++) {
+        if (numerimente.includes(indovina[j])) {
+            punteggio.push(indovina[j]);
+        }
+    }
+
+    alert(`Hai totalizzato ${punteggio.length} punti. I numeri indovinati sono: ${punteggio}`)
+
 }, secondi * 1000 + 200);
 
-let score = ""
-
-const punteggio = numerimente[i] === indovina[i] ? score++ : score = ""
-
-console.log(punteggio)
