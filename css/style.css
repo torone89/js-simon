@@ -24,9 +24,17 @@ body {
 /* *************************/
 
 #numerimente {
-    font-weight: bolder;
-    font-size: 10rem;
-    text-align: center;
+
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    font-size: 6rem;
+    padding: 2rem;
+    font-weight: bold;
+
 }
 
 #timer {

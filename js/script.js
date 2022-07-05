@@ -10,7 +10,7 @@ console.log("JS")
 
 // Recupero dove stampare i numeri da ricordare a mente nel DOM
 
-let numeri = document.getElementById('numerimente')
+const numeri = document.getElementById('numerimente')
 console.log(numeri)
 
 const timer = document.getElementById('timer')
@@ -19,50 +19,45 @@ const timer = document.getElementById('timer')
 function getRandomnumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 };
-
-
-
 let numerimente = [];
 const indicenumeri = 5
 
 // for (let i = 1; i <= indicenumeri; i++) {
-
-
 //     // Controllo 
 //     if (numerimente.includes(getRandomnumber(1, 100))) { i-- }
 //     else { numerimente.push(getRandomnumber(1, 100)) }
-
 //     console.log(numerimente)
 //     numeri.innerText = numerimente
-
 // }
 
 // SOLUZIONE WHILE
-while (numerimente.length < 5) {
+while (numerimente.length <= 5) {
     let randomNumber = getRandomnumber(1, 100);
     if (!numerimente.includes(randomNumber)) {
         numerimente.push(randomNumber);
     }
 }
 
-numeri.innerHTML = numerimente
-
+// STAMPO I NUMERI IN UNA LISTA
+let item = ''
+for (let i = 1; i <= indicenumeri; i++) {
+    item += `<li>${numerimente[i]}</li>`
+}
+numeri.innerHTML = item
 
 // Mi creo un ContDown che parte da 30 secondi e decresci di un secondo fino allo 0
 let secondi = 30
+let secondidue = ""
 const contoAllaRovescia = setInterval(function () {
-    timer.innerHTML = `"Memorizza i numeri" <br> ATTENTO mancano <br> ${secondi}`
 
     --secondi
-
+    timer.innerHTML = `"Memorizza i numeri" <br> ATTENTO mancano <br> ${secondi}`
     if (secondi === 0) {
         clearInterval(contoAllaRovescia)
         // Aggiungo la classe display none
         timer.classList.add('display');
         numeri.classList.add('display');
-
     }
-
     console.log(contoAllaRovescia)
 }, 1000)
 
