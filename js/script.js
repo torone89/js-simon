@@ -55,11 +55,8 @@ const contoAllaRovescia = setInterval(function () {
 
     if (secondi === 0) {
         clearInterval(contoAllaRovescia)
-        timer.innerHTML = '';
-        numeri.innerHTML = '';
     }
     else { timer.innerHTML = `"Memorizza i numeri" <br> ATTENTO mancano <br> ${--secondi}` }
-
 
     if (secondi === 0) {
         clearInterval(contoAllaRovescia)
