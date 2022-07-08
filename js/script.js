@@ -1,4 +1,3 @@
-
 // VERIFICA COLLEGAMENTO JAVA
 console.log("JS")
 
@@ -47,19 +46,30 @@ numeri.innerHTML = item
 
 // Mi creo un ContDown che parte da 30 secondi e decresci di un secondo fino allo 0
 let secondi = 30
-let secondidue = ""
+
+// Stampo fuori dalla funzione Interval per fix il secondo di ritardo
+timer.innerHTML = `"Memorizza i numeri" <br> ATTENTO mancano <br> ${secondi}`
+// const contatore = in
 const contoAllaRovescia = setInterval(function () {
 
-    --secondi
-    timer.innerHTML = `"Memorizza i numeri" <br> ATTENTO mancano <br> ${secondi}`
+
     if (secondi === 0) {
         clearInterval(contoAllaRovescia)
-        // Aggiungo la classe display none
-        timer.classList.add('display');
-        numeri.classList.add('display');
+        timer.innerHTML = '';
+        numeri.innerHTML = '';
+    }
+    else { timer.innerHTML = `"Memorizza i numeri" <br> ATTENTO mancano <br> ${--secondi}` }
+
+
+    if (secondi === 0) {
+        clearInterval(contoAllaRovescia)
+        // resetto l'html dei numeri e dei timers
+        timer.innerHTML = '';
+        numeri.innerHTML = '';
     }
     console.log(contoAllaRovescia)
 }, 1000)
+
 
 
 // Mi Creo un array per chiedere un utente un numero  e mi calcolo un punteggio
@@ -77,7 +87,13 @@ const comandoprompt = setTimeout(function () {
         } while (isNaN(indovinaNumero)) // Verifica che sia un valore "numero" e non stringa
 
         // Inserisco il numero nell'array Indovina
-        indovina.push(indovinaNumero);
+        // indovina.push(indovinaNumero);
+        // facendo solo indovina.push(indovinaNumero), l'utente che scrive 5 volte lo stesso numero totalizzerà 5 punti
+        // perciò, assicuriamoci che il numero non sia già presente nell'array
+
+        // se numerimente contiene indovinaNumero, setto indovinaNumero a 0, che non può dare punto all'utente
+        let cleanedNumber = indovina.includes(indovinaNumero) ? 0 : indovinaNumero
+        indovina.push(cleanedNumber)
     }
     console.log("I numeri che ho scelto:" + indovina);
 
@@ -91,4 +107,3 @@ const comandoprompt = setTimeout(function () {
     alert(`Hai totalizzato ${punteggio.length} punti. I numeri indovinati sono: ${punteggio}`)
 
 }, secondi * 1000 + 200);
-
